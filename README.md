@@ -79,7 +79,19 @@ http://127.0.0.1:4173
 
 The dashboard loads a sample dossier by default. Use `Load JSON` to select your generated `dossier/biotracekit.json` file.
 
-### 5. Expected workflow
+### 5. Use the hosted dashboard
+
+The dashboard can be hosted with GitHub Pages at:
+
+```text
+https://phoebe-yg.github.io/biotracekit/
+```
+
+This repository includes a GitHub Actions workflow that deploys the static files in `web/` whenever dashboard files change on `main`. In the GitHub repository, enable Pages with `Settings` -> `Pages` -> `Source` -> `GitHub Actions`.
+
+Do not commit sensitive dossier files to the repository. The dashboard can load a local `biotracekit.json` file in your browser without uploading it.
+
+### 6. Expected workflow
 
 For day-to-day use, the intended flow is:
 
