@@ -1,0 +1,17 @@
+[project]
+name = "biotracekit"
+version = "0.1.0"
+description = "Local-first reproducibility dossiers for computational biology workflows."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [
+  { name = "BioTraceKit contributors" }
+]
+keywords = ["bioinformatics", "computational-biology", "reproducibility", "provenance", "fair"]
+
+[project.scripts]
+biotracekit = "biotracekit.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
