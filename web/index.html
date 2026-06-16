@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>BioTraceKit Reviewer</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">BioTraceKit</p>
+          <h1>Reviewer Dashboard</h1>
+        </div>
+        <div class="actions">
+          <label class="file-button" title="Load dossier JSON">
+            <input id="dossier-file" type="file" accept="application/json,.json">
+            Load JSON
+          </label>
+          <button id="reset-sample" type="button">Sample</button>
+          <button id="copy-methods" type="button">Copy Methods</button>
+        </div>
+      </header>
+
+      <main>
+        <section class="summary-band" aria-label="Dossier summary">
+          <div class="score-tile">
+            <div class="score-ring" id="score-ring" aria-label="FAIR readiness score">
+              <span id="score-percent">0%</span>
+            </div>
+            <div>
+              <h2 id="workflow-engine">Unknown</h2>
+              <p id="source-path" class="muted"></p>
+            </div>
+          </div>
+          <div class="metric">
+            <span class="metric-value" id="check-count">0/0</span>
+            <span class="metric-label">checks passed</span>
+          </div>
+          <div class="metric">
+            <span class="metric-value" id="file-count">0</span>
+            <span class="metric-label">files scanned</span>
+          </div>
+          <div class="metric">
+            <span class="metric-value" id="gap-count">0</span>
+            <span class="metric-label">open gaps</span>
+          </div>
+        </section>
+
+        <section class="review-grid">
+          <article class="panel checks-panel">
+            <div class="panel-heading">
+              <h2>Readiness Checks</h2>
+            </div>
+            <div id="checks-list" class="checks-list"></div>
+          </article>
+
+          <article class="panel">
+            <div class="panel-heading">
+              <h2>Workflow Map</h2>
+            </div>
+            <div class="workflow-map" aria-label="Workflow dossier map">
+              <div class="map-node" id="map-inputs">Inputs</div>
+              <div class="map-line"></div>
+              <div class="map-node" id="map-workflow">Workflow</div>
+              <div class="map-line"></div>
+              <div class="map-node" id="map-outputs">Outputs</div>
+            </div>
+            <dl class="detail-list">
+              <div>
+                <dt>Entry points</dt>
+                <dd id="entrypoints"></dd>
+              </div>
+              <div>
+                <dt>Sample sheets</dt>
+                <dd id="sample-sheets"></dd>
+              </div>
+              <div>
+                <dt>Output folders</dt>
+                <dd id="outputs"></dd>
+              </div>
+            </dl>
+          </article>
+        </section>
+
+        <section class="review-grid">
+          <article class="panel">
+            <div class="panel-heading">
+              <h2>Tool Inventory</h2>
+            </div>
+            <table>
+              <thead>
+                <tr>
+                  <th>Type</th>
+                  <th>Detected value</th>
+                </tr>
+              </thead>
+              <tbody id="inventory-table"></tbody>
+            </table>
+          </article>
+
+          <article class="panel gaps-panel">
+            <div class="panel-heading">
+              <h2>Metadata Gaps</h2>
+            </div>
+            <ul id="gaps-list" class="gaps-list"></ul>
+          </article>
+        </section>
+
+        <section class="panel methods-panel">
+          <div class="panel-heading">
+            <h2>Methods Summary</h2>
+          </div>
+          <pre id="methods-summary"></pre>
+        </section>
+      </main>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
