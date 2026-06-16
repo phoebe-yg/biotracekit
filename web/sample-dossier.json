@@ -1,0 +1,93 @@
+{
+  "schema_version": "0.1.0",
+  "generated_at": "2026-06-16T00:00:00+00:00",
+  "source": {
+    "path": "/lab/workflows/rnaseq",
+    "file_count": 7
+  },
+  "workflow": {
+    "engine": "nextflow",
+    "entrypoints": [
+      "main.nf"
+    ]
+  },
+  "score": {
+    "passed": 6,
+    "total": 7,
+    "percent": 86
+  },
+  "checks": [
+    {
+      "key": "entrypoint",
+      "label": "Workflow entry point detected",
+      "passed": true
+    },
+    {
+      "key": "sample_sheet",
+      "label": "Sample sheet or metadata table detected",
+      "passed": true
+    },
+    {
+      "key": "config",
+      "label": "Configuration file detected",
+      "passed": true
+    },
+    {
+      "key": "container",
+      "label": "Container reference detected",
+      "passed": true
+    },
+    {
+      "key": "readme",
+      "label": "README detected",
+      "passed": true
+    },
+    {
+      "key": "license",
+      "label": "License detected",
+      "passed": false
+    },
+    {
+      "key": "outputs",
+      "label": "Output directory detected",
+      "passed": true
+    }
+  ],
+  "files": {
+    "entrypoints": [
+      "main.nf"
+    ],
+    "sample_sheets": [
+      "samples.tsv"
+    ],
+    "configs": [
+      "nextflow.config"
+    ],
+    "outputs": [
+      "results/"
+    ],
+    "all": [
+      "README.md",
+      "main.nf",
+      "nextflow.config",
+      "samples.tsv",
+      "results/multiqc_report.html"
+    ]
+  },
+  "containers": [
+    "quay.io/biocontainers/fastqc:0.12.1--hdfd78af_0",
+    "quay.io/biocontainers/multiqc:1.22.3--pyhdfd78af_0"
+  ],
+  "tools": [
+    "FASTQC",
+    "MULTIQC"
+  ],
+  "parameters": {
+    "reads": "data/*.fastq.gz",
+    "genome": "GRCh38",
+    "outdir": "results"
+  },
+  "gaps": [
+    "Add a license so downstream users know how the workflow can be reused."
+  ]
+}
