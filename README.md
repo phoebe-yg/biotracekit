@@ -13,22 +13,16 @@ Computational biology already has strong workflow engines, but many analyses sti
 - A human-readable methods summary for papers, lab notebooks, and pull requests.
 - A dashboard that lets scientists inspect inputs, tools, containers, outputs, and missing metadata before publication.
 
-## MVP Branches
+## Product Components
 
-This repository uses `main` for the product brief and planning docs. Two prototype branches explore different MVP directions:
+BioTraceKit currently has two local-first components:
 
-- `mvp/cli-dossier`: a Python CLI that scans a small workflow folder and emits a JSON dossier plus a Markdown methods summary.
-- `mvp/web-reviewer`: a static reviewer dashboard for inspecting a BioTraceKit dossier in the browser.
+- CLI dossier generator: scans a workflow folder and emits a JSON dossier plus a Markdown methods summary.
+- Web reviewer: opens a dossier in the browser so collaborators can review readiness checks, files, tools, containers, parameters, outputs, and gaps.
 
 ## Step-by-Step Usage Guide
 
-### 1. Use the CLI dossier MVP
-
-Check out the CLI branch:
-
-```bash
-git switch mvp/cli-dossier
-```
+### 1. Generate a dossier
 
 Run the scanner against the included example RNA-seq workflow:
 
@@ -43,7 +37,7 @@ BioTraceKit writes two files:
 
 Open `dossier/METHODS.md` first. It is the quickest way to review the detected workflow engine, entry points, sample sheets, containers, parameters, outputs, and reproducibility gaps.
 
-### 2. Scan your own workflow folder
+### 2. Scan your own workflow
 
 Run the same command against a local workflow repository or completed run folder:
 
@@ -69,13 +63,7 @@ FAIR readiness: 100% (7/7 checks)
 
 Treat the score as an early review checklist, not as a formal compliance claim. A lower score means the folder is missing handoff metadata such as a README, license, sample sheet, config, container reference, or output directory.
 
-### 4. Inspect the dossier in the web reviewer MVP
-
-Check out the web branch:
-
-```bash
-git switch mvp/web-reviewer
-```
+### 4. Inspect the dossier in the browser
 
 Start a local static server:
 
@@ -89,7 +77,7 @@ Open this URL:
 http://127.0.0.1:4173
 ```
 
-The dashboard loads a sample dossier by default. Use `Load JSON` to select a generated `biotracekit.json` file from the CLI MVP.
+The dashboard loads a sample dossier by default. Use `Load JSON` to select your generated `dossier/biotracekit.json` file.
 
 ### 5. Expected workflow
 
